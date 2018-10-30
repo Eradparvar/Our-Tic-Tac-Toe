@@ -19,11 +19,12 @@ namespace TicTacToe
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "" & !end)
+            Button button = sender as Button;
+            if (button.Text == "" & !end)
             {
-                button1.Text = turn % 2 == 0 ? "X" : "O";
+                button.Text = turn % 2 == 0 ? "X" : "O";
                 if (checkForWin())
                     winMessage();
                 turn++;
@@ -34,125 +35,7 @@ namespace TicTacToe
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (button2.Text == "" & !end)
-            {
-                button2.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (button3.Text == "" & !end)
-            {
-                button3.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (button4.Text == "" & !end)
-            {
-                button4.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (button5.Text == "" & !end)
-            {
-                button5.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (button6.Text == "" & !end)
-            {
-                button6.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if (button7.Text == "" & !end)
-            {
-                button7.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (button8.Text == "" & !end)
-            {
-                button8.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if (button9.Text == "" & !end)
-            {
-                button9.Text = turn % 2 == 0 ? "X" : "O";
-                if (checkForWin())
-                    winMessage();
-                turn++;
-                if (rbtn_Easy.Checked & !end)
-                {
-                    moveRandom();
-                }
-            }
-        }
+        
         private bool checkForWin()
         {
             String[,] buttons = new String[3, 3];

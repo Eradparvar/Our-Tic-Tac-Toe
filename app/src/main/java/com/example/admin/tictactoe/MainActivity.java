@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //for testing purposes
-    TextView btn;
+    //TextView btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //for testing purposes
-    public void makeMove(View v) {
+    /*public void makeMove(View v) {
         btn.setText("X");
+    } */
+
+    Board board = new Board();
+    TextView btn;
+
+    public void makeMove0(View v) {
+        board.move(0);
+        btn = findViewById(R.id.b00);
+        btn.setText(board.getString(0));
+    }
+
+    public void makeMove1(View v) {
+        board.move(1);
+        btn = findViewById(R.id.b01);
+        btn.setText(board.getString(1));
+    }
+
+    public void makeMove2(View v) {
+        board.move(2);
+        btn = findViewById(R.id.b02);
+        btn.setText(board.getString(2));
+    }
+
+    public void makeMove3(View v) {
+        board.move(3);
+        btn = findViewById(R.id.b10);
+        btn.setText(board.getString(3));
+    }
+
+    public void makeMove4(View v) {
+        board.move(4);
+        btn = findViewById(R.id.b11);
+        btn.setText(board.getString(4));
+    }
+
+    public void makeMove5(View v) {
+        board.move(5);
+        btn = findViewById(R.id.b12);
+        btn.setText(board.getString(5));
+    }
+
+    public void makeMove6(View v) {
+        board.move(6);
+        btn = findViewById(R.id.b20);
+        btn.setText(board.getString(6));
+    }
+
+    public void makeMove7(View v) {
+        board.move(7);
+        btn = findViewById(R.id.b21);
+        btn.setText(board.getString(7));
+    }
+
+    public void makeMove8(View v) {
+        board.move(8);
+        btn = findViewById(R.id.b22);
+        btn.setText(board.getString(8));
     }
 
 }

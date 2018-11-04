@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setText("X");
     } */
 
-    Board board = new Board();
+    Board board = new Board(State.O);
     TextView btn;
 
     public void makeMove0(View v) {

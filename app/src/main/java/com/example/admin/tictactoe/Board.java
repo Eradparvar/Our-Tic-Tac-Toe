@@ -7,7 +7,8 @@ public class Board {
 	
 	
 	//Constructor, sets the board's state to all blank:
-	public Board(){
+	public Board(State firstTurn){
+	    currentTurn = firstTurn;
 		resetBoard();
 	}
 

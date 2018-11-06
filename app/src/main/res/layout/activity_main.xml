@@ -27,7 +27,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove0"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -39,7 +39,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove1"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -51,7 +51,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove2"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -68,7 +68,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove3"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -80,7 +80,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove4"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -92,7 +92,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove5"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -109,7 +109,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove6"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -121,7 +121,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove7"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 
@@ -133,7 +133,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/button_border_color"
                 android:gravity="center"
-                android:onClick="makeMove8"
+                android:onClick="makeMove"
                 android:textColor="#4fa5d5"
                 android:textSize="22sp" />
 

@@ -30,7 +30,11 @@ public class Board {
 		}
 
 	}
-	
+
+	public State getStateAt(int index){
+		return boardState[index];
+	}
+
 	//This method takes a position and returns the string representation of the enum: 
 	public String getString(int position){
 		if (boardState[position] == State.X){

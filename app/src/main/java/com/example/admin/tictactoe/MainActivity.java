@@ -2,13 +2,16 @@ package com.example.admin.tictactoe;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //for testing purposes
     //TextView btn;
-
+    boolean easy;
+    boolean hard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +26,26 @@ public class MainActivity extends AppCompatActivity {
     /*public void makeMove(View v) {
         btn.setText("X");
     } */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        menu.setGroupCheckable(1,true, true);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.easyLevel:
+                easy = true;
+                return true;
+            case R.id.hardLevel:
+                hard = true;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     Board board = new Board(State.O);
     TextView btn;
 

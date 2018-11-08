@@ -356,7 +356,7 @@ public class Board {
 			 * 		|   | * |   |
 			 * 		-------------
 			 */
-			else if (boardState[1] == lastMove && boardState[7] == lastMove) {
+			else if (boardState[1] == lastMove && boardState[4] == lastMove) {
 				return true;
 			}
 		case 8:

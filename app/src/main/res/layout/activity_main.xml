@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvInfo"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:columnCount="3"
         android:padding="8dp"
         android:rowCount="3">
@@ -146,8 +147,9 @@
         android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
+        android:layout_marginTop="75dp"
         android:padding="8dp"
         android:textColor="#424242"
         android:textSize="18sp" />
@@ -162,7 +164,7 @@
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
         android:padding="8dp"
-        android:text="RESET"
+        android:text="@string/Reset"
         android:textColor="#4fa5d5"
         android:textSize="18sp" />
 

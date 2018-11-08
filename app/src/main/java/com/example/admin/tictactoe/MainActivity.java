@@ -24,49 +24,61 @@ public class MainActivity extends AppCompatActivity {
         btn.setText("X");
     } */
 
-    Board board = new Board(State.X);
+    Board board = new Board(State.O);
     TextView btn;
 
-
-    public void makeMove(View v){
-        if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK){
-            board.move(0);
-            btn = findViewById(R.id.b00);
-            btn.setText(board.getString(0));
-        } else if (v.getId() == R.id.b01 && board.getStateAt(1) == State.BLANK){
-            board.move(1);
-            btn = findViewById(R.id.b01);
-            btn.setText(board.getString(1));
-        } else if (v.getId() == R.id.b02 && board.getStateAt(2) == State.BLANK){
-            board.move(2);
-            btn = findViewById(R.id.b02);
-            btn.setText(board.getString(2));
-        } else if (v.getId() == R.id.b10 && board.getStateAt(3) == State.BLANK){
-            board.move(3);
-            btn = findViewById(R.id.b10);
-            btn.setText(board.getString(3));
-        } else if (v.getId() == R.id.b11 && board.getStateAt(4) == State.BLANK){
-            board.move(4);
-            btn = findViewById(R.id.b11);
-            btn.setText(board.getString(4));
-        } else if (v.getId() == R.id.b12 && board.getStateAt(5) == State.BLANK){
-            board.move(5);
-            btn = findViewById(R.id.b12);
-            btn.setText(board.getString(5));
-        } else if (v.getId() == R.id.b20 && board.getStateAt(6) == State.BLANK) {
-            board.move(6);
-            btn = findViewById(R.id.b20);
-            btn.setText(board.getString(6));
-        } else if (v.getId() == R.id.b21 && board.getStateAt(7) == State.BLANK) {
-            board.move(7);
-            btn = findViewById(R.id.b21);
-            btn.setText(board.getString(7));
-        } else if (v.getId() == R.id.b22 && board.getStateAt(8) == State.BLANK) {
-            board.move(8);
-            btn = findViewById(R.id.b22);
-            btn.setText(board.getString(8));
-        }
+    public void makeMove0(View v) {
+        board.move(0);
+        btn = findViewById(R.id.b00);
+        btn.setText(board.getString(0));
     }
-    
+
+    public void makeMove1(View v) {
+        board.move(1);
+        btn = findViewById(R.id.b01);
+        btn.setText(board.getString(1));
+    }
+
+    public void makeMove2(View v) {
+        board.move(2);
+        btn = findViewById(R.id.b02);
+        btn.setText(board.getString(2));
+    }
+
+    public void makeMove3(View v) {
+        board.move(3);
+        btn = findViewById(R.id.b10);
+        btn.setText(board.getString(3));
+    }
+
+    public void makeMove4(View v) {
+        board.move(4);
+        btn = findViewById(R.id.b11);
+        btn.setText(board.getString(4));
+    }
+
+    public void makeMove5(View v) {
+        board.move(5);
+        btn = findViewById(R.id.b12);
+        btn.setText(board.getString(5));
+    }
+
+    public void makeMove6(View v) {
+        board.move(6);
+        btn = findViewById(R.id.b20);
+        btn.setText(board.getString(6));
+    }
+
+    public void makeMove7(View v) {
+        board.move(7);
+        btn = findViewById(R.id.b21);
+        btn.setText(board.getString(7));
+    }
+
+    public void makeMove8(View v) {
+        board.move(8);
+        btn = findViewById(R.id.b22);
+        btn.setText(board.getString(8));
+    }
 
 }

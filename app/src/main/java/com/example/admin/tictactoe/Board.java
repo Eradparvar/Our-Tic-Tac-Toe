@@ -26,17 +26,18 @@ public class Board {
 		// the value in the turn variable:
 		boardState[positionOnBoard] = currentTurn;
 
+		//Check if game completed:
+		if (gameCompleted(currentTurn, positionOnBoard)) {
+                	winnerDisplayAlertDialog();
+		}
+		
 		// This block flips the state of the turn variable for the next turn:
 		if (currentTurn == State.O) {
 			currentTurn = State.X;
 		} else if (currentTurn == State.X) {
 			currentTurn = State.O;
 		}
-		//Check if game completed:
-		if (gameCompleted(currentTurn, positionOnBoard)) {
-
-            winnerDisplayAlertDialog();
-		}
+		
 
 	}
     public void winnerDisplayAlertDialog() {
@@ -176,7 +177,7 @@ public class Board {
 			 * 		|   |   | * |
 			 * 		-------------
 			 */
-			else if (boardState[5] == lastMove) {
+			else if (boardState[5] == lastMove && boardState[8] == lastMove) {
 				return true;
 			}
 			/*-

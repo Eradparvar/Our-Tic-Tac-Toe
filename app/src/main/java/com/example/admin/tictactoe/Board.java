@@ -60,9 +60,9 @@ public class Board {
 	//This method takes a position and returns the string representation of the enum: 
 	public String getString(int position){
 		if (boardState[position] == State.X){
-			return "x";
+			return "X";
 		} else if (boardState[position] == State.O){
-			return "o";
+			return "O";
 		} else {
 			return "";
 		}
@@ -123,8 +123,7 @@ public class Board {
 				return true;
 			}
 			// In any other case the last move did not complete the game:
-			else
-				return false;
+			break;
 		case 1:
 			/*-
 			 * The following condition tests for a line across the top: 
@@ -151,8 +150,8 @@ public class Board {
 			 */
 			else if (boardState[4] == lastMove && boardState[7] == lastMove) {
 				return true;
-			} else
-				return false;
+			}
+			break;
 		case 2:
 			/*-
 			 * The following condition tests for a line across the top: 
@@ -193,6 +192,7 @@ public class Board {
 			else if (boardState[4] == lastMove && boardState[6] == lastMove) {
 				return true;
 			}
+			break;
 		case 3:
 			/*-
 			 * The following condition tests for a line down the left: 
@@ -219,8 +219,8 @@ public class Board {
 			 */
 			else if (boardState[4] == lastMove && boardState[5] == lastMove) {
 				return true;
-			} else
-				return false;
+			}
+			break;
 		case 4:
 			/*-
 			 * The following condition tests for a line down the center:
@@ -274,6 +274,7 @@ public class Board {
 			else if (boardState[2] == lastMove && boardState[6] == lastMove) {
 				return true;
 			}
+			break;
 		case 5:
 			/*-
 			 * The following condition tests for a line down the right side:
@@ -314,6 +315,7 @@ public class Board {
 			else if (boardState[2] == lastMove && boardState[8] == lastMove) {
 				return true;
 			}
+			break;
 		case 6:
 			/*-
 			 * The following condition tests for a line down the left:
@@ -381,6 +383,7 @@ public class Board {
 			else if (boardState[1] == lastMove && boardState[4] == lastMove) {
 				return true;
 			}
+			break;
 		case 8:
 			/*-
 			 * The following condition tests for a line across the bottom:
@@ -421,9 +424,10 @@ public class Board {
 			else if (boardState[0] == lastMove && boardState[4] == lastMove) {
 				return true;
 			}
+			break;
 		default:
 			return false;
 		}
-
-	}
+        return false;
+    }
 }

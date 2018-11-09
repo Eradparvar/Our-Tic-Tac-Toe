@@ -2,27 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:id="@+id/Players"
-        app:showAsAction="withText">
+    <group android:id="@+id/Players">
 
         <item android:id="@+id/players1"
-            android:title="@string/_1_player"
-            app:showAsAction="withText">
+            android:title="@string/_1_player">
 
             <menu>
 
                 <item android:id="@+id/easyLevel"
-                    android:title="@string/easy" />
+                    android:title="@string/easy"
+                    android:checkable="true"/>
+
 
                 <item android:id="@+id/hardLevel"
-                    android:title="@string/hard" />
+                    android:title="@string/hard"
+                    android:checkable="true"/>
 
             </menu>
 
         </item>
 
         <item android:id="@+id/players2"
-            android:title="@string/_2_players" />
+            android:title="@string/_2_players"
+            android:checkable="true"/>
 
     </group>
 

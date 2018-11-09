@@ -10,9 +10,8 @@
         android:id="@+id/glGameBoard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvInfo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="100dp"
         android:columnCount="3"
         android:padding="8dp"
         android:rowCount="3">
@@ -30,7 +29,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b01"
@@ -42,7 +41,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b02"
@@ -54,7 +53,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
         </TableRow>
 
@@ -71,7 +70,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b11"
@@ -83,7 +82,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b12"
@@ -95,7 +94,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
         </TableRow>
 
@@ -112,7 +111,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b21"
@@ -124,7 +123,7 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
             <Button
                 android:id="@+id/b22"
@@ -136,23 +135,13 @@
                 android:gravity="center"
                 android:onClick="makeMove"
                 android:textColor="#4fa5d5"
-                android:textSize="22sp" />
+                android:textSize="60sp" />
 
         </TableRow>
 
     </TableLayout>
 
     <!--TextView to show user turns and winner-->
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:padding="8dp"
-        android:textColor="#424242"
-        android:textSize="18sp" />
 
     <!--Button to reset game board-->
     <Button

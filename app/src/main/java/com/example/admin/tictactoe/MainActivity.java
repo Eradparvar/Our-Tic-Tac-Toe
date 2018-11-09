@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         menu.setGroupCheckable(1, true, true);
+        menu.getItem(2).setChecked(true);
         return true;
     }
 
@@ -41,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.easyLevel:
                 easy = true;
+                item.setChecked(true);
                 return true;
             case R.id.hardLevel:
                 hard = true;
+                item.setChecked(true);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    Board board = new Board(State.X);
+    Board board = new Board(State.X, this);
     TextView btn;
 
     public void makeMove(View v) {

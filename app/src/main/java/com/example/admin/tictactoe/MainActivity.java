@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         menu.setGroupCheckable(1, true, true);
-        menu.getItem(2).setChecked(true);
+        menu.getItem(1).setChecked(true);
         return true;
     }
 

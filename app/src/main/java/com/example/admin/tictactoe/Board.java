@@ -356,6 +356,7 @@ public class Board {
 			else if (boardState[2] == lastMove && boardState[4] == lastMove) {
 				return true;
 			}
+			break;
 		case 7:
 			/*-
 			 * The following condition tests for a line across the bottom:

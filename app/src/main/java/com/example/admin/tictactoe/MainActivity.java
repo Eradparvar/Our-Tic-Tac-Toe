@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    Board board = new Board(State.X);
+    Board board = new Board(State.X,this);
     TextView btn;
 
     public void makeMove(View v){

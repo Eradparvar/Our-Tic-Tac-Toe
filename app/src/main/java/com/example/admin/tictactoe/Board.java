@@ -1,14 +1,21 @@
 package com.example.admin.tictactoe;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+
 public class Board {
 
 	private State[] boardState = new State[9];
 	private State currentTurn;
+	private Context context;
 	
 	
 	//Constructor, sets the board's state to all blank:
-	public Board(State firstTurn){
+	public Board(State firstTurn, Context context){
 	    currentTurn = firstTurn;
+        this.context = context;
 		resetBoard();
 	}
 
@@ -26,11 +33,24 @@ public class Board {
 			currentTurn = State.O;
 		}
 		//Check if game completed:
-		if (!gameCompleted(currentTurn, positionOnBoard)) {
-			//Add message box code here
+		if (gameCompleted(currentTurn, positionOnBoard)) {
+
+            winnerDisplayAlertDialog();
 		}
 
 	}
+    public void winnerDisplayAlertDialog() {
+
+        new AlertDialog.Builder(context)
+                .setTitle("Winner!")
+                .setMessage(currentTurn + " Won!")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                }).show();
+    }
 
 	public State getStateAt(int index){
 		return boardState[index];

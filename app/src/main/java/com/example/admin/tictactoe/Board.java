@@ -1,21 +1,26 @@
 package com.example.admin.tictactoe;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.TextView;
 
 public class Board {
 
 	private State[] boardState = new State[9];
 	private State currentTurn;
 	private Context context;
+	private  Activity activity;
 	
 	
 	//Constructor, sets the board's state to all blank:
-	public Board(State firstTurn, Context context){
+	public Board(State firstTurn, Context context, Activity activity){
 	    currentTurn = firstTurn;
         this.context = context;
+        this.activity = activity;
 		resetBoard();
 	}
 
@@ -29,6 +34,8 @@ public class Board {
 		//Check if game completed:
 		if (gameCompleted(currentTurn, positionOnBoard)) {
                 	winnerDisplayAlertDialog();
+                	resetBoard();
+                	restGui();
 		}
 		
 		// This block flips the state of the turn variable for the next turn:
@@ -40,7 +47,12 @@ public class Board {
 		
 
 	}
-    public void winnerDisplayAlertDialog() {
+
+	public  void restGui() {
+	activity.setContentView(R.layout.activity_main);
+	}
+
+	public void winnerDisplayAlertDialog() {
 
         new AlertDialog.Builder(context)
                 .setTitle("Winner!")
@@ -356,6 +368,7 @@ public class Board {
 			else if (boardState[2] == lastMove && boardState[4] == lastMove) {
 				return true;
 			}
+			break;
 		case 7:
 			/*-
 			 * The following condition tests for a line across the bottom:

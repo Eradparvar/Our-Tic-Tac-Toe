@@ -60,9 +60,9 @@ public class Board {
 	//This method takes a position and returns the string representation of the enum: 
 	public String getString(int position){
 		if (boardState[position] == State.X){
-			return "X";
+			return "x";
 		} else if (boardState[position] == State.O){
-			return "O";
+			return "o";
 		} else {
 			return "";
 		}

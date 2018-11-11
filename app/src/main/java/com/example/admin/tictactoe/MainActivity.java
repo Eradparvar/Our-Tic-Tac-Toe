@@ -19,21 +19,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //for testing purposes
-        btn = findViewById(R.id.b00);
-
     }
 
-    //for testing purposes
-    /*public void makeMove(View v) {
-        btn.setText("X");
-    } */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         menu.setGroupCheckable(1, true, true);
-        menu.getItem(2).setChecked(true);
+        menu.getItem(1).setChecked(true);
         return true;
     }
 
@@ -94,5 +86,27 @@ public class MainActivity extends AppCompatActivity {
             btn = findViewById(R.id.b22);
             btn.setText(board.getString(8));
         }
+    }
+    public void reset(View v){
+        board.resetBoard();
+        btn = findViewById(R.id.b00);
+        btn.setText("");
+        btn = findViewById(R.id.b01);
+        btn.setText("");
+        btn = findViewById(R.id.b02);
+        btn.setText("");
+        btn = findViewById(R.id.b10);
+        btn.setText("");
+        btn = findViewById(R.id.b11);
+        btn.setText("");
+        btn = findViewById(R.id.b12);
+        btn.setText("");
+        btn = findViewById(R.id.b20);
+        btn.setText("");
+        btn = findViewById(R.id.b21);
+        btn.setText("");
+        btn = findViewById(R.id.b22);
+        btn.setText("");
+        board = new Board(State.X, this);
     }
 }

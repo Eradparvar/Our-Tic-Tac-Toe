@@ -152,6 +152,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
+        android:onClick="reset"
         android:padding="8dp"
         android:text="@string/Reset"
         android:textColor="#4fa5d5"

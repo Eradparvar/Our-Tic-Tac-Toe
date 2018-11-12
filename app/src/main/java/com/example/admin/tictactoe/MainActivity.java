@@ -1,5 +1,6 @@
 package com.example.admin.tictactoe;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         menu.setGroupCheckable(1, true, true);
+        menu.setGroupCheckable(0, true, true);
         menu.getItem(1).setChecked(true);
         return true;
     }
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    Board board = new Board(State.X, this);
+    Board board = new Board(State.X, this, this);
     TextView btn;
 
     public void makeMove(View v) {
@@ -89,24 +91,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void reset(View v){
         board.resetBoard();
-        btn = findViewById(R.id.b00);
-        btn.setText("");
-        btn = findViewById(R.id.b01);
-        btn.setText("");
-        btn = findViewById(R.id.b02);
-        btn.setText("");
-        btn = findViewById(R.id.b10);
-        btn.setText("");
-        btn = findViewById(R.id.b11);
-        btn.setText("");
-        btn = findViewById(R.id.b12);
-        btn.setText("");
-        btn = findViewById(R.id.b20);
-        btn.setText("");
-        btn = findViewById(R.id.b21);
-        btn.setText("");
-        btn = findViewById(R.id.b22);
-        btn.setText("");
-        board = new Board(State.X, this);
+        board.restGui();
     }
 }

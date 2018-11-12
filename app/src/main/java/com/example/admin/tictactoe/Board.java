@@ -36,6 +36,7 @@ public class Board {
                 	winnerDisplayAlertDialog();
                 	resetBoard();
                 	restGui();
+                	return;
 		}
 		
 		// This block flips the state of the turn variable for the next turn:
@@ -85,6 +86,7 @@ public class Board {
 		for (int i = 0; i < 9; i++) {
 			boardState[i] = State.BLANK;
 		}
+		currentTurn = State.X;
 	}
 
 	/*

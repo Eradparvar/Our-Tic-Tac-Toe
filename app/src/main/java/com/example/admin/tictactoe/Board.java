@@ -14,6 +14,8 @@ public class Board {
 	private State currentTurn;
 	private Context context;
 	private  Activity activity;
+	private int turns = 0;
+	private boolean tieGame;
 	
 	
 	//Constructor, sets the board's state to all blank:
@@ -56,8 +58,8 @@ public class Board {
 	public void winnerDisplayAlertDialog() {
 
         new AlertDialog.Builder(context)
-                .setTitle("Winner!")
-                .setMessage(currentTurn + " Won!")
+                .setTitle("Game Over")
+                .setMessage(tieGame ? "Tie Game" : currentTurn + " Wins!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -87,6 +89,8 @@ public class Board {
 			boardState[i] = State.BLANK;
 		}
 		currentTurn = State.X;
+		turns = 0;
+		tieGame = false;
 	}
 
 	/*
@@ -95,6 +99,11 @@ public class Board {
 	 * there can be a line.
 	 */
 	private boolean gameCompleted(State lastMove, int position) {
+		turns++;
+		if(turns == 9) {
+			tieGame = true;
+			return true;
+		}
 		switch (position) {
 		case 0:
 			/*-

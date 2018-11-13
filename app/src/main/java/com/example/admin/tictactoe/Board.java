@@ -40,6 +40,13 @@ public class Board {
                 	restGui();
                 	return;
 		}
+		else if(turns == 9) {
+			tieGame = true;
+			winnerDisplayAlertDialog();
+			resetBoard();
+			restGui();
+			return;
+		}
 		
 		// This block flips the state of the turn variable for the next turn:
 		if (currentTurn == State.O) {
@@ -100,10 +107,6 @@ public class Board {
 	 */
 	private boolean gameCompleted(State lastMove, int position) {
 		turns++;
-		if(turns == 9) {
-			tieGame = true;
-			return true;
-		}
 		switch (position) {
 		case 0:
 			/*-

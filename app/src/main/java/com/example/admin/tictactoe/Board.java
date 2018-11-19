@@ -16,6 +16,8 @@ public class Board {
 	private  Activity activity;
 	private int turns = 0;
 	private boolean tieGame;
+	private int lastMove;
+	private State lastState = State.BLANK;
 	
 	
 	//Constructor, sets the board's state to all blank:
@@ -32,6 +34,8 @@ public class Board {
 		// This line changes the state of the selected position on the board to
 		// the value in the turn variable:
 		boardState[positionOnBoard] = currentTurn;
+		lastMove = positionOnBoard;
+		lastState = currentTurn;
 
 		//Check if game completed:
 		if (gameCompleted(currentTurn, positionOnBoard)) {
@@ -56,6 +60,10 @@ public class Board {
 		}
 		
 
+	}
+	public void undoMove() {
+		boardState[lastMove] = State.BLANK;
+		currentTurn = lastState;
 	}
 
 	public  void restGui() {

@@ -165,10 +165,9 @@
         android:layout_height="48dp"
         android:layout_alignStart="@+id/glGameBoard"
         android:layout_alignLeft="@+id/glGameBoard"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="419dp"
+        android:layout_alignTop="@+id/bReset"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
         android:background="@color/colorPrimary"
         android:onClick="undoMove"
         app:srcCompat="@android:drawable/ic_menu_revert" />

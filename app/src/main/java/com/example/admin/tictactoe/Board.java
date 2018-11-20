@@ -64,6 +64,7 @@ public class Board {
 	public void undoMove() {
 		boardState[lastMove] = State.BLANK;
 		currentTurn = lastState;
+		turns--;
 	}
 
 	public  void restGui() {

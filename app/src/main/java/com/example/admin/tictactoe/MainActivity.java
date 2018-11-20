@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
             btn.setText(board.getString(8));
             lastMove = btn;
         }
+        //Gets random position:
+        if (easy){
+            randomAgent();
+        }
     }
     public void undoMove(View v){
         board.undoMove();
@@ -115,5 +119,38 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View v){
         board.resetBoard();
         board.restGui();
+    }
+
+    public void randomAgent(){
+        Random rand = new Random();
+        //This block keeps generating random positions until it gets a blank space:
+        int randomizedMove;
+        boolean unusedSpace = false;
+        do {
+            randomizedMove = rand.nextInt(9);
+            if (board.getStateAt(randomizedMove) == State.BLANK){
+                unusedSpace = true;
+            }
+        } while(!unusedSpace);
+        //This block calls the makeMove method to put the "O" on the screen:
+        if (randomizedMove == 0){
+            makeMove(findViewById(R.id.b00));
+        } else if (randomizedMove == 1){
+            makeMove(findViewById(R.id.b01));
+        } else if (randomizedMove == 2){
+            makeMove(findViewById(R.id.b02));
+        } else if (randomizedMove == 3){
+            makeMove(findViewById(R.id.b10));
+        } else if (randomizedMove == 4){
+            makeMove(findViewById(R.id.b11));
+        } else if (randomizedMove == 5){
+            makeMove(findViewById(R.id.b12));
+        } else if (randomizedMove == 6){
+            makeMove(findViewById(R.id.b20));
+        } else if (randomizedMove == 7){
+            makeMove(findViewById(R.id.b21));
+        } else if (randomizedMove == 8){
+            makeMove(findViewById(R.id.b22));
+        }
     }
 }

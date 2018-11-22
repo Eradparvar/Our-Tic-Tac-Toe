@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import java.util.concurrent.TimeUnit;
 
 import java.util.Random;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     //TextView btn;
     boolean easy;
     boolean hard;
+    boolean randomMethodsTurn = true; //Used in easy version
     Board board = new Board(State.X, this, this);
     TextView btn;
     TextView lastMove;
@@ -41,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.easyLevel:
                 easy = true;
                 item.setChecked(true);
+                reset();
                 return true;
             case R.id.hardLevel:
                 hard = true;
                 item.setChecked(true);
+                reset();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -108,20 +112,27 @@ public class MainActivity extends AppCompatActivity {
             lastMove = btn;
         }
         //Gets random position:
-        if (easy){
-            randomAgent();
-        }
+       if (easy && randomMethodsTurn){
+           randomAgent();
+       }
+       randomMethodsTurn = true;
+
     }
     public void undoMove(View v){
         board.undoMove();
         lastMove.setText("");
     }
     public void reset(View v){
+        reset();
+    }
+
+    public void reset(){
         board.resetBoard();
         board.restGui();
     }
 
     public void randomAgent(){
+        randomMethodsTurn = false;
         Random rand = new Random();
         //This block keeps generating random positions until it gets a blank space:
         int randomizedMove;
@@ -152,5 +163,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (randomizedMove == 8){
             makeMove(findViewById(R.id.b22));
         }
+        randomMethodsTurn = false;
     }
 }

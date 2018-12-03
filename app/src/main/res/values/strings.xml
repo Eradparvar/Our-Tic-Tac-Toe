@@ -6,4 +6,5 @@
     <string name="_2_players">2 Players</string>
     <string name="easy">Easy</string>
     <string name="hard">Hard</string>
+    <string name="title_activity_start_menue">StartMenue</string>
 </resources>

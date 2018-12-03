@@ -19,6 +19,7 @@ public class Board {
 	private boolean tieGame;
 	private int lastMove;
 	private State lastState = State.BLANK;
+	private boolean gameCompleted = false;
 	
 	
 	//Constructor, sets the board's state to all blank:
@@ -43,6 +44,7 @@ public class Board {
                 	winnerDisplayAlertDialog();
                 	resetBoard();
                 	restGui();
+                	gameCompleted = true;
                 	return;
 		}
 		else if(turns == 9) {
@@ -50,6 +52,7 @@ public class Board {
 			winnerDisplayAlertDialog();
 			resetBoard();
 			restGui();
+			gameCompleted = true;
 			return;
 		}
 		
@@ -69,7 +72,8 @@ public class Board {
 	}
 
 	public  void restGui() {
-	activity.setContentView(R.layout.activity_main);
+		activity.setContentView(R.layout.activity_main);
+
 	}
 
 	public void winnerDisplayAlertDialog() {
@@ -108,6 +112,16 @@ public class Board {
 		currentTurn = State.X;
 		turns = 0;
 		tieGame = false;
+	}
+
+
+
+	public boolean gameCompleted(){
+		return gameCompleted;
+	}
+
+	public void newGame(){
+		gameCompleted = false;
 	}
 
 	/*

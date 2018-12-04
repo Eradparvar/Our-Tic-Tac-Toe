@@ -1,27 +1,21 @@
 package com.example.admin.tictactoe;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TableRow;
 import android.widget.TextView;
-import java.util.concurrent.TimeUnit;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     //for testing purposes
     //TextView btn;
+    View v1 = findViewById(R.id.Two_Player_Button);
     boolean easy;
     boolean hard;
     boolean randomMethodsTurn = true; //Used in easy version
-    boolean misereVersion = false;
+    boolean miseryVersion = false;
     Board board = new Board(State.X, this, this);
     TextView btn;
     TextView lastMove;
@@ -33,37 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options_menu, menu);
-        menu.setGroupCheckable(1, true, true);
-        menu.setGroupCheckable(0, true, true);
-        menu.getItem(1).setChecked(true);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.easyLevel:
-                easy = true;
-                hard = false;
-                item.setChecked(true);
-                reset();
-                return true;
-            case R.id.hardLevel:
-                hard = true;
-                easy = false;
-                item.setChecked(true);
-                reset();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     public void makeMove(View v) {
-        if (misereVersion){
+        if (miseryVersion){
             misereVersionMove(v);
         } else if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {
             board.move(0);

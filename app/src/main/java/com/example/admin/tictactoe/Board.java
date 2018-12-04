@@ -20,6 +20,7 @@ public class Board {
 	private int lastMove;
 	private State lastState = State.BLANK;
 	private boolean gameCompleted = false;
+	private boolean misereVersion = false;
 	
 	
 	//Constructor, sets the board's state to all blank:
@@ -57,13 +58,20 @@ public class Board {
 		}
 		
 		// This block flips the state of the turn variable for the next turn:
+		if (!misereVersion){
+			flip();
+		}
+		
+
+	}
+
+	//This method flips the turn at the end of a move:
+	public void flip(){
 		if (currentTurn == State.O) {
 			currentTurn = State.X;
 		} else if (currentTurn == State.X) {
 			currentTurn = State.O;
 		}
-		
-
 	}
 	public void undoMove() {
 		boardState[lastMove] = State.BLANK;
@@ -74,6 +82,14 @@ public class Board {
 	public  void restGui() {
 		activity.setContentView(R.layout.activity_main);
 
+	}
+
+	public void setMisereVersion(){
+		misereVersion = true;
+	}
+
+	public void turnOffMisereVersion(){
+		misereVersion = false;
 	}
 
 	public void winnerDisplayAlertDialog() {

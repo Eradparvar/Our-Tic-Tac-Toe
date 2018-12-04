@@ -1,17 +1,16 @@
 package com.example.admin.tictactoe;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    //for testing purposes
-    //TextView btn;
-    View v1 = findViewById(R.id.Two_Player_Button);
     boolean easy;
     boolean hard;
     boolean randomMethodsTurn = true; //Used in easy version
@@ -25,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+       //use gameMode variable to select game mode type
+        String gameMode = intent.getStringExtra("gameMode");
+        Toast.makeText(getApplicationContext(), "You are in: " + gameMode, Toast.LENGTH_SHORT).show();
     }
 
     public void makeMove(View v) {
@@ -219,4 +222,6 @@ public class MainActivity extends AppCompatActivity {
             board.move(8);
         }
     }
+
+
 }

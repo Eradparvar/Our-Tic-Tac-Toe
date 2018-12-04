@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.time.chrono.Chronology;
 
 public class StartMenue extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,17 +21,17 @@ public class StartMenue extends AppCompatActivity {
         Two_Player_Button = (Button) this.findViewById(R.id.Two_Player_Button);
         CPU_Hard_Button = (Button) this.findViewById(R.id.CPU_Hard_Button);
         CPU_Easy_Button = (Button) this.findViewById(R.id.CPU_Easy_Button);
-        
-        Two_Player_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-               if(view == Two_Player_Button) {
-
-                    Intent intent = new Intent(StartMenue.this, MainActivity.class);
-                    startActivity(intent);
-               }
-            }
-        });
     }
-}
+
+    public void onClickGameModeSelector(View view){
+       //for debuging
+        // Toast.makeText(getApplicationContext(), "Buttone Clicked", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(StartMenue.this, MainActivity.class);
+        intent.putExtra("gameMode",getResources().getResourceEntryName(view.getId()));
+        startActivity(intent);
+    }
+
+
+
+    }

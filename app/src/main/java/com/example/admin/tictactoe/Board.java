@@ -93,16 +93,28 @@ public class Board {
 	}
 
 	public void winnerDisplayAlertDialog() {
+		if(MainActivity.miseryVersion) {
+			new AlertDialog.Builder(context)
+					.setTitle("Game Over")
+					.setMessage(currentTurn == State.X ? "Player 1 Loses!" : "Player 2 Loses!" )
+					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
 
-        new AlertDialog.Builder(context)
-                .setTitle("Game Over")
-                .setMessage(tieGame ? "Tie Game" : currentTurn + " Wins!")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					}).show();
+		}
+		else {
+			new AlertDialog.Builder(context)
+					.setTitle("Game Over")
+					.setMessage(tieGame ? "Tie Game" : currentTurn + " Wins!")
+					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
 
-                        dialog.cancel();
-                    }
-                }).show();
+							dialog.cancel();
+						}
+					}).show();
+		}
     }
 
 	public State getStateAt(int index){

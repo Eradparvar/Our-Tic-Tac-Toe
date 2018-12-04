@@ -8,76 +8,129 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/CPU_Hard_Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="99dp"
-            android:layout_marginRight="99dp"
-            android:layout_marginBottom="266dp"
-            android:text="CPU Hard"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="213dp" />
-
-        <Button
-            android:id="@+id/CPU_Easy_Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="97dp"
-            android:layout_marginLeft="97dp"
-            android:layout_marginBottom="265dp"
-            android:text="CPU Easy"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.499"
-            tools:layout_editor_absoluteX="77dp" />
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="169dp"
-            android:layout_marginEnd="106dp"
-            android:layout_marginRight="106dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
             android:text="How would you like to play?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="113dp" />
+            tools:layout_editor_absoluteY="113dp"
 
-        <Button
-            android:id="@+id/Two_Player_Button"
-            android:layout_width="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="238dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="147dp"
-            android:layout_marginLeft="147dp"
-            android:layout_marginTop="197dp"
-            android:text="2 Player"
-            tools:layout_editor_absoluteX="139dp"
-            tools:layout_editor_absoluteY="175dp" />
+            android:layout_below="@+id/textView_Button"
+            android:layout_alignBottom="@+id/Signature"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="114dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/CPU_Hard_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="CPU Hard"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:onClick="onClickGameModeSelector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+               />
+
+            <Button
+                android:id="@+id/CPU_Easy_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="CPU Easy"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:onClick="onClickGameModeSelector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Two_Player_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="2 Player Standard"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:onClick="onClickGameModeSelector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Two_Player_Misery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="2 player Misery Version"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:onClick="onClickGameModeSelector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/CPU_Misery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:padding="16dp"
+                android:text="CPU Misery Version"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:onClick="onClickGameModeSelector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/Signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="59dp"
+            android:padding="5dp"
             android:text="Created by Eli, Shlomo and Ari" />
+
+        <TextView
+            android:id="@+id/Welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
+            android:text="Welcome to Tic Tac Toe!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="30sp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

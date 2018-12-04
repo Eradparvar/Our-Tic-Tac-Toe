@@ -3,10 +3,15 @@ package com.example.admin.tictactoe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class StartMenue extends Activity {
+import java.time.chrono.Chronology;
+
+public class StartMenue extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,22 +21,47 @@ public class StartMenue extends Activity {
         Two_Player_Button = (Button) this.findViewById(R.id.Two_Player_Button);
         CPU_Hard_Button = (Button) this.findViewById(R.id.CPU_Hard_Button);
         CPU_Easy_Button = (Button) this.findViewById(R.id.CPU_Easy_Button);
+    }
 
-        Two_Player_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-               if(view == Two_Player_Button) {
+    public void onClickGameModeSelector(View view){
+       //for debuging
+        // Toast.makeText(getApplicationContext(), "Buttone Clicked", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(StartMenue.this, MainActivity.class);
+        intent.putExtra("gameMode",getResources().getResourceEntryName(view.getId()));
+        startActivity(intent);
 
 
-            Intent intent = new Intent(StartMenue.this, MainActivity.class);
 
-            startActivity(intent);
+
+
+
+        switch (view.getId()) {
+            case R.id.CPU_Hard_Button:
+                //Not implemented yet
+                break;
+            case R.id.CPU_Easy_Button:
+                MainActivity.miseryVersion = false;
+                MainActivity.easy = true;
+                MainActivity.hard = false;
+                break;
+            case R.id.Two_Player_Button:
+                MainActivity.miseryVersion = false;
+                MainActivity.easy = false;
+                MainActivity.hard = false;
+                break;
+            case R.id.Two_Player_Misery:
+                MainActivity.miseryVersion = true;
+                MainActivity.easy = false;
+                MainActivity.hard = false;
+                break;
+            case R.id.CPU_Misery:
+                //Not implemented yet
+                break;
 
         }
     }
 
-        });
-    }
 
-}
+
+    }

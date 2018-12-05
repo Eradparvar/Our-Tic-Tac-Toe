@@ -39,6 +39,9 @@ public class StartMenue extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.CPU_Hard_Button:
                 //Not implemented yet
+                MainActivity.miseryVersion = false;
+                MainActivity.easy = false;
+                MainActivity.hard = false;
                 break;
             case R.id.CPU_Easy_Button:
                 MainActivity.miseryVersion = false;
@@ -57,6 +60,9 @@ public class StartMenue extends AppCompatActivity {
                 break;
             case R.id.CPU_Misery:
                 //Not implemented yet
+                MainActivity.miseryVersion = false;
+                MainActivity.easy = false;
+                MainActivity.hard = false;
                 break;
 
         }

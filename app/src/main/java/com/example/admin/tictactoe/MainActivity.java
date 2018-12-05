@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void makeMove(View v) {
         if (miseryVersion){
             board.setMisereVersion();
-            misereVersionMove(v);
+            miseryVersionMove(v);
         } else if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {
             board.move(0);
             btn = findViewById(R.id.b00);
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         randomMethodsTurn = false;
     }
 
-    public void misereVersionMove(View v){
+    public void miseryVersionMove(View v){
         if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {
             btn = findViewById(R.id.b00);
             btn.setText("X");

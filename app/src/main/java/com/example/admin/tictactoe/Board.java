@@ -96,7 +96,7 @@ public class Board {
 		if(MainActivity.miseryVersion) {
 			new AlertDialog.Builder(context)
 					.setTitle("Game Over")
-					.setMessage(currentTurn == State.X ? "Player 1 Loses!" : "Player 2 Loses!" )
+					.setMessage(turns % 2 == 0 ? "Player 2 Loses!" : "Player 1 Loses!" )
 					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartMenue">
+    tools:context=".StartMenu">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/CPU_Hard_Button"
+                android:id="@+id/CPU_Hard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -54,7 +54,7 @@
                />
 
             <Button
-                android:id="@+id/CPU_Easy_Button"
+                android:id="@+id/CPU_Easy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/Two_Player_Button"
+                android:id="@+id/Two_Player"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"

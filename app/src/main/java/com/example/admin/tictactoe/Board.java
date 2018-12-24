@@ -31,6 +31,9 @@ public class Board {
 		resetBoard();
 	}
 
+
+
+
 	// This method should be called when the user makes a move:
 	public void move(int positionOnBoard) {
 
@@ -117,6 +120,8 @@ public class Board {
 		}
     }
 
+
+
 	public State getStateAt(int index){
 		return boardState[index];
 	}
@@ -142,7 +147,13 @@ public class Board {
 		tieGame = false;
 	}
 
+	public State[] getBoardStateArray(){
+		return boardState;
+	}
 
+	public State getCurrentTurn(){
+		return currentTurn;
+	}
 
 	public boolean gameCompleted(){
 		return gameCompleted;

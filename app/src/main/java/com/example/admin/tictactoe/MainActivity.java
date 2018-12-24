@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.os.Handler;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         String gameMode = intent.getStringExtra("gameMode");
         Toast.makeText(getApplicationContext(), "You are in: " + gameMode, Toast.LENGTH_SHORT).show();
     }
+
+
 
     public void makeMove(View v) {
         if (miseryVersion){
@@ -90,8 +92,15 @@ public class MainActivity extends AppCompatActivity {
             lastMove = btn;
         }
         //Gets random position:
-       if (easy && randomMethodsTurn && !board.gameCompleted()){
-           randomAgent();
+       if (easy && randomMethodsTurn() && !board.gameCompleted()){
+          Handler handler = new Handler();
+           handler.postDelayed(new Runnable() {
+               @Override
+               public void run() {
+                   randomAgent();
+               }
+           }, 300);
+         // randomAgent();
        }
        randomMethodsTurn = true;
 
@@ -100,6 +109,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public boolean randomMethodsTurn(){
+        return board.getCurrentTurn() == State.O;
+    }
+
+
+
     public void undoMove(View v){
         board.undoMove();
         lastMove.setText("");
@@ -117,12 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void randomAgent(){
 
-        /*try {
-            TimeUnit.SECONDS.sleep(1);
-        }catch (InterruptedException e){
-            
-        }
-        */
+
         randomMethodsTurn = false;
         Random rand = new Random();
 
@@ -157,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
         }
         randomMethodsTurn = false;
     }
+
+
 
     public void miseryVersionMove(View v){
         if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {

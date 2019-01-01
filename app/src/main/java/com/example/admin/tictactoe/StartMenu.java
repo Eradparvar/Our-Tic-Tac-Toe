@@ -28,7 +28,7 @@ public class StartMenu extends AppCompatActivity {
                 //Not implemented yet
                 MainActivity.miseryVersion = false;
                 MainActivity.easy = false;
-                MainActivity.hard = false;
+                MainActivity.hard = true;
                 break;
             case R.id.CPU_Easy:
                 MainActivity.miseryVersion = false;

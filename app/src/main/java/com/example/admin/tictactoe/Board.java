@@ -21,6 +21,7 @@ public class Board {
 	private State lastState = State.BLANK;
 	private boolean gameCompleted = false;
 	private boolean misereVersion = false;
+	private boolean copy;
 	
 	
 	//Constructor, sets the board's state to all blank:
@@ -29,10 +30,33 @@ public class Board {
         this.context = context;
         this.activity = activity;
 		resetBoard();
+		copy = false;
 	}
 
 
+	public String[][] getTwoDimentionalStringArrayRepresentingBoardState(){
+		String[][] arrayToReturn = new String[3][3];
+		for (int i = 0; i < boardState.length; i++){
+			if (i < 3){
+				arrayToReturn[0][i] = getStringRepresentationOfState(boardState[i]);
+			} else if (i < 6){
+				arrayToReturn[1][i - 3] = getStringRepresentationOfState(boardState[i]);
+			} else {
+				arrayToReturn[2][i - 6] = getStringRepresentationOfState(boardState[i]);
+			}
+		}
+		return arrayToReturn;
+	}
 
+	public String getStringRepresentationOfState(State s1){
+		if (s1 == State.BLANK){
+			return "_";
+		} else if (s1 == State.O){
+			return "o";
+		} else {
+			return "x";
+		}
+	}
 
 	// This method should be called when the user makes a move:
 	public void move(int positionOnBoard) {
@@ -44,7 +68,7 @@ public class Board {
 		lastState = currentTurn;
 
 		//Check if game completed:
-		if (gameCompleted(currentTurn, positionOnBoard)) {
+		if (gameCompleted(currentTurn, positionOnBoard, this.boardState)) {
                 	winnerDisplayAlertDialog();
                 	resetBoard();
                 	restGui();
@@ -93,6 +117,10 @@ public class Board {
 
 	public void turnOffMisereVersion(){
 		misereVersion = false;
+	}
+
+	public boolean tie(){
+		return gameCompleted() && tieGame;
 	}
 
 	public void winnerDisplayAlertDialog() {
@@ -163,12 +191,13 @@ public class Board {
 		gameCompleted = false;
 	}
 
+
 	/*
 	 * The next method checks if the previous move completed the game, the cases
 	 * represent the possible last move, and the if tests represent ways that
 	 * there can be a line.
 	 */
-	private boolean gameCompleted(State lastMove, int position) {
+	public boolean gameCompleted(State lastMove, int position, State[] boardState) {
 		turns++;
 		switch (position) {
 		case 0:

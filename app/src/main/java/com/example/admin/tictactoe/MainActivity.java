@@ -13,7 +13,6 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     static boolean easy;
     static boolean hard;
-    boolean randomMethodsTurn = true; //Used in easy version
     static boolean miseryVersion = false;
     Board board = new Board(State.X, this, this);
     TextView btn;
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             lastMove = btn;
         }
         //Gets random position:
-       if (easy && randomMethodsTurn() && !board.gameCompleted()){
+       if (easy && cpuMethodsTurn() && !board.gameCompleted()){
           Handler handler = new Handler();
            handler.postDelayed(new Runnable() {
                @Override
@@ -102,7 +101,16 @@ public class MainActivity extends AppCompatActivity {
            }, 300);
          // randomAgent();
        }
-       randomMethodsTurn = true;
+       if (hard && cpuMethodsTurn() && !board.gameCompleted()){
+           Handler handler = new Handler();
+           handler.postDelayed(new Runnable() {
+               @Override
+               public void run() {
+                   makeMove(convertIntegerToView(MinMax.findBestMove(board.getTwoDimentionalStringArrayRepresentingBoardState())));
+               }
+           }, 300);
+       }
+
 
         if (board.gameCompleted()){
             board.newGame();
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean randomMethodsTurn(){
+    public boolean cpuMethodsTurn(){
         return board.getCurrentTurn() == State.O;
     }
 
@@ -134,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
     public void randomAgent(){
 
 
-        randomMethodsTurn = false;
+
         Random rand = new Random();
 
         //This block keeps generating random positions until it gets a blank space:
@@ -166,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (randomizedMove == 8){
             makeMove(findViewById(R.id.b22));
         }
-        randomMethodsTurn = false;
+
     }
 
 
@@ -217,6 +225,28 @@ public class MainActivity extends AppCompatActivity {
             btn.setText("X");
             lastMove = btn;
             board.move(8);
+        }
+    }
+
+    public View convertIntegerToView(int positionOnBoard){
+        if (positionOnBoard == 0){
+            return findViewById(R.id.b00);
+        } else if (positionOnBoard == 1){
+            return findViewById(R.id.b01);
+        } else if (positionOnBoard == 2){
+            return findViewById(R.id.b02);
+        } else if (positionOnBoard == 3) {
+            return findViewById(R.id.b10);
+        } else if (positionOnBoard == 4){
+            return findViewById(R.id.b11);
+        } else if (positionOnBoard == 5) {
+            return findViewById(R.id.b12);
+        } else if (positionOnBoard == 6){
+            return findViewById(R.id.b20);
+        } else if(positionOnBoard == 7){
+            return findViewById(R.id.b21);
+        } else {
+            return findViewById(R.id.b22);
         }
     }
 

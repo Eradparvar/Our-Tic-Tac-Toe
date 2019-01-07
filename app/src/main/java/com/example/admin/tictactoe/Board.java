@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
@@ -22,10 +23,11 @@ public class Board {
 	private boolean gameCompleted = false;
 	private boolean misereVersion = false;
 	private boolean copy;
+    Handler handler = new Handler();
 	
 	
 	//Constructor, sets the board's state to all blank:
-	public Board(State firstTurn, Context context, Activity activity){
+	Board(State firstTurn, Context context, Activity activity){
 	    currentTurn = firstTurn;
         this.context = context;
         this.activity = activity;
@@ -34,7 +36,7 @@ public class Board {
 	}
 
 
-	public String[][] getTwoDimentionalStringArrayRepresentingBoardState(){
+	String[][] getTwoDimensionalStringArrayRepresentingBoardState(){
 		String[][] arrayToReturn = new String[3][3];
 		for (int i = 0; i < boardState.length; i++){
 			if (i < 3){
@@ -48,7 +50,7 @@ public class Board {
 		return arrayToReturn;
 	}
 
-	public String getStringRepresentationOfState(State s1){
+	String getStringRepresentationOfState(State s1){
 		if (s1 == State.BLANK){
 			return "_";
 		} else if (s1 == State.O){
@@ -61,6 +63,7 @@ public class Board {
 	// This method should be called when the user makes a move:
 	public void move(int positionOnBoard) {
 
+        turns++;
 		// This line changes the state of the selected position on the board to
 		// the value in the turn variable:
 		boardState[positionOnBoard] = currentTurn;
@@ -69,18 +72,14 @@ public class Board {
 
 		//Check if game completed:
 		if (gameCompleted(currentTurn, positionOnBoard, this.boardState)) {
-                	winnerDisplayAlertDialog();
-                	resetBoard();
-                	restGui();
-                	gameCompleted = true;
-                	return;
+			gameCompleted = true;
+			winnerDisplayAlertDialog();
+			return;
 		}
 		else if(turns == 9) {
 			tieGame = true;
-			winnerDisplayAlertDialog();
-			resetBoard();
-			restGui();
 			gameCompleted = true;
+			winnerDisplayAlertDialog();
 			return;
 		}
 		
@@ -93,25 +92,25 @@ public class Board {
 	}
 
 	//This method flips the turn at the end of a move:
-	public void flip(){
+	void flip(){
 		if (currentTurn == State.O) {
 			currentTurn = State.X;
 		} else if (currentTurn == State.X) {
 			currentTurn = State.O;
 		}
 	}
-	public void undoMove() {
+	void undoMove() {
 		boardState[lastMove] = State.BLANK;
 		currentTurn = lastState;
 		turns--;
 	}
 
-	public  void restGui() {
+	void restGui() {
 		activity.setContentView(R.layout.activity_main);
 
 	}
 
-	public void setMisereVersion(){
+	void setMisereVersion(){
 		misereVersion = true;
 	}
 
@@ -123,14 +122,15 @@ public class Board {
 		return gameCompleted() && tieGame;
 	}
 
-	public void winnerDisplayAlertDialog() {
-		if(MainActivity.miseryVersion) {
+	private void winnerDisplayAlertDialog() {
+		if(MainActivity.miseryVersion || MainActivity.miseryVersionCPU) {
 			new AlertDialog.Builder(context)
 					.setTitle("Game Over")
 					.setMessage(turns % 2 == 0 ? "Player 2 Loses!" : "Player 1 Loses!" )
 					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
-
+							restGui();
+							resetBoard();
 							dialog.cancel();
 						}
 					}).show();
@@ -141,7 +141,8 @@ public class Board {
 					.setMessage(tieGame ? "Tie Game" : currentTurn + " Wins!")
 					.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
-
+							restGui();
+							resetBoard();
 							dialog.cancel();
 						}
 					}).show();
@@ -150,12 +151,12 @@ public class Board {
 
 
 
-	public State getStateAt(int index){
+	State getStateAt(int index){
 		return boardState[index];
 	}
 
 	//This method takes a position and returns the string representation of the enum: 
-	public String getString(int position){
+    String getString(int position){
 		if (boardState[position] == State.X){
 			return "x";
 		} else if (boardState[position] == State.O){
@@ -166,7 +167,7 @@ public class Board {
 	}
 
 	// This method should be called when the user begins a new game:
-	public void resetBoard() {
+    void resetBoard() {
 		for (int i = 0; i < 9; i++) {
 			boardState[i] = State.BLANK;
 		}
@@ -179,15 +180,16 @@ public class Board {
 		return boardState;
 	}
 
-	public State getCurrentTurn(){
+	State getCurrentTurn(){
 		return currentTurn;
 	}
+	int getTurns(){ return turns; }
 
-	public boolean gameCompleted(){
+	boolean gameCompleted(){
 		return gameCompleted;
 	}
 
-	public void newGame(){
+	void newGame(){
 		gameCompleted = false;
 	}
 
@@ -197,8 +199,7 @@ public class Board {
 	 * represent the possible last move, and the if tests represent ways that
 	 * there can be a line.
 	 */
-	public boolean gameCompleted(State lastMove, int position, State[] boardState) {
-		turns++;
+    private boolean gameCompleted(State lastMove, int position, State[] boardState) {
 		switch (position) {
 		case 0:
 			/*-

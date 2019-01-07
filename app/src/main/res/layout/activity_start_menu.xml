@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="122dp"
             android:text="How would you like to play?"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
@@ -24,48 +24,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="113dp"
-
             />
 
         <LinearLayout
-            android:layout_width="238dp"
-            android:layout_height="wrap_content"
+            android:layout_width="207dp"
+            android:layout_height="330dp"
             android:layout_below="@+id/textView_Button"
             android:layout_alignBottom="@+id/Signature"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="114dp"
+            android:layout_marginBottom="75dp"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/CPU_Hard"
+            <TextView
+                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_light"
-                android:padding="16dp"
-                android:text="CPU Hard"
-                android:textColor="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="STANDARD VERSION"
                 android:textStyle="bold"
-                android:onClick="onClickGameModeSelector"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-
-               />
-
-            <Button
-                android:id="@+id/CPU_Easy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:background="@android:color/holo_blue_light"
-                android:padding="16dp"
-                android:text="CPU Easy"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:onClick="onClickGameModeSelector"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@android:color/holo_green_light"
+                android:textColorHighlight="@color/colorAccent"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/Two_Player"
@@ -73,13 +54,55 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:background="@android:color/holo_blue_light"
+                android:onClick="onClickGameModeSelector"
                 android:padding="16dp"
-                android:text="2 Player Standard"
+                android:text="2 Player"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                android:onClick="onClickGameModeSelector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/CPU_Hard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="onClickGameModeSelector"
+                android:padding="16dp"
+                android:text="CPU Hard"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <Button
+                android:id="@+id/CPU_Easy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="onClickGameModeSelector"
+                android:padding="16dp"
+                android:text="CPU Easy"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MISERE VERSION"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_green_light"
+                android:textColorHighlight="@color/colorAccent"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/Two_Player_Misery"
@@ -87,11 +110,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:background="@android:color/holo_blue_light"
+                android:onClick="onClickGameModeSelector"
                 android:padding="16dp"
-                android:text="2 player Misery Version"
+                android:text="2 player"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                android:onClick="onClickGameModeSelector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,11 +124,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:background="@android:color/holo_blue_light"
+                android:onClick="onClickGameModeSelector"
                 android:padding="16dp"
-                android:text="CPU Misery Version"
+                android:text="CPU"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                android:onClick="onClickGameModeSelector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,10 +149,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="66dp"
+            android:layout_marginTop="42dp"
             android:text="Welcome to Tic Tac Toe!"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@android:color/holo_orange_light"
+            android:textColor="@android:color/holo_green_light"
             android:textSize="30sp" />
     </RelativeLayout>
 

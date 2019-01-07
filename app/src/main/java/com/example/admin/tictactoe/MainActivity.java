@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
     static boolean easy;
     static boolean hard;
     static boolean miseryVersion = false;
+    static boolean miseryVersionCPU;
     Board board = new Board(State.X, this, this);
     TextView btn;
     TextView lastMove;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "You are in: " + gameMode, Toast.LENGTH_SHORT).show();
     }
 
-
-
     public void makeMove(View v) {
-        if (miseryVersion){
+        if (miseryVersion || miseryVersionCPU){
             board.setMisereVersion();
             miseryVersionMove(v);
         } else if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {
@@ -106,27 +104,28 @@ public class MainActivity extends AppCompatActivity {
            handler.postDelayed(new Runnable() {
                @Override
                public void run() {
-                   makeMove(convertIntegerToView(MinMax.findBestMove(board.getTwoDimentionalStringArrayRepresentingBoardState())));
+                   makeMove(convertIntegerToView(MinMax.findBestMove(board.getTwoDimensionalStringArrayRepresentingBoardState())));
                }
            }, 300);
        }
-
-
         if (board.gameCompleted()){
             board.newGame();
         }
-
     }
 
     public boolean cpuMethodsTurn(){
-        return board.getCurrentTurn() == State.O;
+        if(miseryVersionCPU == true)
+            return board.getTurns() % 2 != 0;
+        else if(hard || easy)
+            return board.getCurrentTurn() == State.O;
+        else return false;
     }
 
-
-
     public void undoMove(View v){
-        board.undoMove();
-        lastMove.setText("");
+        if(!easy && !hard && !miseryVersionCPU) {
+            board.undoMove();
+            lastMove.setText("");
+        }
     }
     public void reset(View v){
         reset();
@@ -137,11 +136,7 @@ public class MainActivity extends AppCompatActivity {
         board.restGui();
     }
 
-
-
     public void randomAgent(){
-
-
 
         Random rand = new Random();
 
@@ -176,8 +171,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
 
     public void miseryVersionMove(View v){
         if (v.getId() == R.id.b00 && board.getStateAt(0) == State.BLANK) {
@@ -225,6 +218,15 @@ public class MainActivity extends AppCompatActivity {
             btn.setText("X");
             lastMove = btn;
             board.move(8);
+        }
+        if (miseryVersionCPU && cpuMethodsTurn() && !board.gameCompleted()){
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    makeMove(convertIntegerToView(MiniMaxMiseryVersion.findBestMove(board.getTwoDimensionalStringArrayRepresentingBoardState())));
+                }
+            }, 300);
         }
     }
 

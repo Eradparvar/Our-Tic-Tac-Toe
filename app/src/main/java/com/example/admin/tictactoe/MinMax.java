@@ -2,9 +2,9 @@ package com.example.admin.tictactoe;
 
 
 
-public class MinMax {
+class MinMax {
 
-    static String player = "o", opponent = "x";
+    private static String player = "o", opponent = "x";
 
   /*  public static void main(String[] args) {
         System.out.println("Hello world! We are running");
@@ -15,7 +15,7 @@ public class MinMax {
 
     // Traverse all cells, evaluate minimax function for all empty cells. And return
     // the cell with optimal value.
-    public static int findBestMove(String[][] board) {
+    static int findBestMove(String[][] board) {
         int bestMoveValue = -1000;
         int bestMovePositionRow = -1;
         int bestMovePositionCol = -1;
@@ -46,7 +46,7 @@ public class MinMax {
         return bestMovePositionRow * 3 + bestMovePositionCol;
     }
 
-    public static int evaluate(String[][] board) {
+    static int evaluate(String[][] board) {
         // Checking for Rows for X or O victory.
         for (int row = 0; row < 3; row++) {
             if (board[row][0].equals(board[row][1]) && board[row][1].equals(board[row][2])) {
@@ -82,7 +82,7 @@ public class MinMax {
         return 0;
     }
 
-    public static boolean isMovesLeft(String board[][]) {
+    static boolean isMovesLeft(String board[][]) {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
                 if (board[i][j].equals("_"))
@@ -90,7 +90,7 @@ public class MinMax {
         return false;
     }
 
-    public static int miniMax(String[][] board, int depth, boolean isMax) {
+    static int miniMax(String[][] board, int depth, boolean isMax) {
         int score = evaluate(board);
         // If Maximizer has won the game return his/her
         // evaluated score
@@ -145,10 +145,4 @@ public class MinMax {
             return best;
         }
     }
-
-
-
-
-
-
 }

@@ -16,44 +16,44 @@ public class StartMenu extends AppCompatActivity {
         this.setContentView(R.layout.activity_start_menu);
     }
 
-    public void onClickGameModeSelector(View view){
-       //for debuging
+    public void onClickGameModeSelector(View view) {
+        //for debuging
         // Toast.makeText(getApplicationContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(StartMenu.this, MainActivity.class);
-        intent.putExtra("gameMode",getResources().getResourceEntryName(view.getId()));
+        intent.putExtra("gameMode", getResources().getResourceEntryName(view.getId()));
         startActivity(intent);
 
         switch (view.getId()) {
             case R.id.CPU_Hard:
-                //Not implemented yet
+                MainActivity.miseryVersionCPU = false;
                 MainActivity.miseryVersion = false;
                 MainActivity.easy = false;
                 MainActivity.hard = true;
                 break;
             case R.id.CPU_Easy:
+                MainActivity.miseryVersionCPU = false;
                 MainActivity.miseryVersion = false;
                 MainActivity.easy = true;
                 MainActivity.hard = false;
                 break;
             case R.id.Two_Player:
+                MainActivity.miseryVersionCPU = false;
                 MainActivity.miseryVersion = false;
                 MainActivity.easy = false;
                 MainActivity.hard = false;
                 break;
             case R.id.Two_Player_Misery:
+                MainActivity.miseryVersionCPU = false;
                 MainActivity.miseryVersion = true;
                 MainActivity.easy = false;
                 MainActivity.hard = false;
                 break;
             case R.id.CPU_Misery:
-                //Not implemented yet
+                MainActivity.miseryVersionCPU = true;
                 MainActivity.miseryVersion = false;
                 MainActivity.easy = false;
                 MainActivity.hard = false;
                 break;
         }
     }
-
-
-
-    }
+}

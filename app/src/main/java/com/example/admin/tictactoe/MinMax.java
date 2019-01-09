@@ -5,7 +5,7 @@ package com.example.admin.tictactoe;
 class MinMax {
 
     private static String player = "o", opponent = "x";
-
+    static int thisdepth = 0;
   /*  public static void main(String[] args) {
         System.out.println("Hello world! We are running");
         String[][] board = { { "x", "o", "x" }, { "o", "o", "x" }, { "_", "_", "_" } };
@@ -19,6 +19,7 @@ class MinMax {
         int bestMoveValue = -1000;
         int bestMovePositionRow = -1;
         int bestMovePositionCol = -1;
+        int bestMoveDepth = 0;
 //		TwoDtoOneDArrayAdaptor oneDArrayAdaptor = new TwoDtoOneDArrayAdaptor(twoDBoard);
 //		String[] board = oneDArrayAdaptor.getOneDArray();
         for (int i = 0; i < 3; i++) {
@@ -27,6 +28,7 @@ class MinMax {
                     // make move
                     board[i][j] = player;
                     // compute evaluation function for this move.
+                    thisdepth = 0;
                     int currentMoveValue = miniMax(board, 0, false);
                     // Undo the move
                     board[i][j] = "_";
@@ -37,6 +39,13 @@ class MinMax {
                         bestMovePositionRow = i;
                         bestMovePositionCol = j;
                         bestMoveValue = currentMoveValue;
+                    }
+                    else if(currentMoveValue == bestMoveValue) {
+                        if(thisdepth < bestMoveDepth) {
+                            bestMovePositionRow = i;
+                            bestMovePositionCol = j;
+                            bestMoveValue = currentMoveValue;
+                        }
                     }
                 }
             }
@@ -116,6 +125,7 @@ class MinMax {
                         board[i][j] = player;
                         // Call minimax recursively and choose
                         // the maximum value
+                        thisdepth++;
                         best = Math.max(best, miniMax(board, depth + 1, !isMax));
                         // Undo the move
                         board[i][j] = "_";
@@ -136,6 +146,7 @@ class MinMax {
                         board[i][j] = opponent;
                         // Call minimax recursively and choose
                         // the minimum value
+                        thisdepth++;
                         best = Math.min(best, miniMax(board, depth + 1, !isMax));
                         // Undo the move
                         board[i][j] = "_";

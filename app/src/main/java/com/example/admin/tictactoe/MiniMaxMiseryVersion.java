@@ -2,9 +2,9 @@ package com.example.admin.tictactoe;
 
 class MiniMaxMiseryVersion {
 
-//    static String player = "o", opponent = "x";
+    //    static String player = "o", opponent = "x";
 
-  /*  public static void main(String[] args) {
+   /*  public static void main(String[] args) {
         System.out.println("Hello world! We are running");
         String[][] board = { { "x", "o", "x" }, { "o", "o", "x" }, { "_", "_", "_" } };
         int bestMove = findBestMove(board);
@@ -26,27 +26,25 @@ class MiniMaxMiseryVersion {
                 if (board[i][j].equals("_")) {
                     // make move
                     board[i][j] = "x";
-                    if(isMovesLeft(board) == false){
+                    if (isMovesLeft(board) == false) {
                         bestMovePositionRow = i;
                         bestMovePositionCol = j;
                     }
                     // compute evaluation function for this move.
-                    else if(!line(board)) {
+                    else if (!line(board)) {
                         boolean trap = true;
                         for (int x = 0; x < 3; x++) {
                             for (int y = 0; y < 3; y++) {
                                 if (board[x][y].equals("_")) {
                                     board[x][y] = "x";
-                                    if(!line(board))
+                                    if (!line(board))
                                         trap = false;
                                     board[x][y] = "_";
                                 }
                             }
                         }
-                        if(trap){
-                            bestMovePositionRow = i;
-                            bestMovePositionCol = j;
-                            break;
+                        if (trap) {
+                            return i * 3 + j;
                         }
                         else {
                             currentMoveValue = 1;
@@ -100,64 +98,4 @@ class MiniMaxMiseryVersion {
                     return true;
         return false;
     }
-
-//    public static int miniMax(String[][] board, int depth, boolean isMax) {
-//        if(isMax)
-//            player1 = true;
-//        else
-//            player1 = false;
-//        int score = evaluate(board);
-//        // If Maximizer has won the game return his/her
-//        // evaluated score
-//        if (score == 10)
-//            return score;
-//        // If Minimizer has won the game return his/her
-//        // evaluated score
-//        if (score == -10)
-//            return score;
-//        // If there are no more moves and no winner then
-//        // it is a tie
-//        if (isMovesLeft(board) == false)
-//            return 0;
-//        // If this maximizer's move
-//        if (isMax) {
-//            int best = -1000;
-//            // Traverse all cells
-//            for (int i = 0; i < 3; i++) {
-//                for (int j = 0; j < 3; j++) {
-//                    // Check if cell is empty
-//                    if (board[i][j].equals("_")) {
-//                        // Make the move
-//                        board[i][j] = "x";
-//                        // Call minimax recursively and choose
-//                        // the maximum value
-//                        best = Math.max(best, miniMax(board, depth + 1, !isMax));
-//                        // Undo the move
-//                        board[i][j] = "_";
-//                    }
-//                }
-//            }
-//            return best;
-//        }
-//        // If this minimizer's move
-//        else {
-//            int best = 1000;
-//            // Traverse all cells
-//            for (int i = 0; i < 3; i++) {
-//                for (int j = 0; j < 3; j++) {
-//                    // Check if cell is empty
-//                    if (board[i][j].equals("_")) {
-//                        // Make the move
-//                        board[i][j] = "x";
-//                        // Call minimax recursively and choose
-//                        // the minimum value
-//                        best = Math.min(best, miniMax(board, depth + 1, !isMax));
-//                        // Undo the move
-//                        board[i][j] = "_";
-//                    }
-//                }
-//            }
-//            return best;
-//        }
-//    }
 }
